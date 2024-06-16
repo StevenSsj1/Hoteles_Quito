@@ -31,6 +31,10 @@ class UserService:
         return UserRepository.create_user(db=db, user=user)
 
     @staticmethod
+    def get_users(db: Session):
+        return UserRepository.get_users(db)
+        
+    @staticmethod
     def verify_password(plain_password: str, hashed_password: str) -> bool:
         print(f"Creating user with hashed password: {hashed_password}")
         return pwd_context.verify(plain_password, hashed_password)

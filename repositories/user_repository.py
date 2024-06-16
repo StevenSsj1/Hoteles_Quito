@@ -29,8 +29,8 @@ class UserRepository:
         return result
 
     @staticmethod
-    def get_users(db: Session, skip: int = 0, limit: int = 100):
-        result = db.execute(select(models.User).offset(skip).limit(limit))
+    def get_users(db: Session):
+        result = db.execute(select(models.User))
         return result.scalars().all()
     
     @staticmethod
