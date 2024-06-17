@@ -7,8 +7,8 @@ from passlib.context import CryptContext
 import jwt
 from jwt.exceptions import InvalidTokenError
 from datetime import datetime, timedelta
-from repositories.user_repository import UserRepository
-from schemas.user_schema import UserCreate, TokenData, UserInDB
+from ..repositories.user_repository import UserRepository
+from ..schemas.user_schema import UserCreate, TokenData, UserInDB
 
 
 # Configuración de Passlib

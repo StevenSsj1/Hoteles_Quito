@@ -1,0 +1,12 @@
+[run]
+omit =
+    */tests/*
+    */site-packages/*
+    */__init__.py
+    # Excluye cualquier otro archivo o directorio que no quieras incluir en el reporte de coverage
+
+[report]
+# Aquí puedes especificar los directorios que quieres incluir, por ejemplo, tu directorio de servicios
+include = ./servicies/*
+          ./controllers/*
+
