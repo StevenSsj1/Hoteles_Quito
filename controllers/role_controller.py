@@ -1,8 +1,15 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
+<<<<<<< Updated upstream
 from pydantic import BaseModel
 from database import SessionLocal
 from servicies import role_service
+=======
+from dependencies import get_db
+from schemas.user_schema import Role, RoleCreate
+from servicies.role_service import RoleService
+from typing import List
+>>>>>>> Stashed changes
 
 router = APIRouter()
 

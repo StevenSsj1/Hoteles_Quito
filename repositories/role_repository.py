@@ -1,5 +1,11 @@
 from sqlalchemy.orm import Session
+<<<<<<< Updated upstream
 from models import models
+=======
+from sqlalchemy.future import select
+import models.models_usuarios as models
+import schemas.user_schema as schemas
+>>>>>>> Stashed changes
 
 class RoleRepository:
 

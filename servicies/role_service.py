@@ -1,6 +1,11 @@
 from sqlalchemy.orm import Session
+<<<<<<< Updated upstream
 from repositories import role_repository
 from models import models
+=======
+from repositories.role_repository import RoleRepository
+from schemas.user_schema import RoleCreate
+>>>>>>> Stashed changes
 
 class RoleService:
 
