@@ -1,8 +1,8 @@
 import pytest
 from unittest.mock import MagicMock
 from sqlalchemy.orm import Session
-from ..servicies.user_service import UserService
-from ..models.models_usuarios import User
+from servicies.user_service import UserService
+from models.models_usuarios import User
 
 @pytest.fixture
 def mock_db():

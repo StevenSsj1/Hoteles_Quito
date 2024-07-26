@@ -2,8 +2,8 @@ import pytest
 from fastapi.testclient import TestClient
 from sqlalchemy.orm import Session
 from unittest.mock import MagicMock
-from ...main import app
-from ...servicies.role_service import RoleService
+from main import app
+from servicies.role_service import RoleService
 
 
 client = TestClient(app)

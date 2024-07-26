@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 from sqlalchemy.future import select
-import ..models.models_usuarios as models
-import ..schemas.user_schema as schemas
+import models.models_usuarios as models
+import schemas.user_schema as schemas
 
 class UserRepository:
     @staticmethod

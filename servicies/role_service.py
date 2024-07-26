@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-from ..repositories.role_repository import RoleRepository
-from ..schemas.user_schema import RoleCreate
+from repositories.role_repository import RoleRepository
+from schemas.user_schema import RoleCreate
 
 class RoleService:
     @staticmethod

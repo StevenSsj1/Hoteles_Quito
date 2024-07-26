@@ -1,7 +1,7 @@
 from unittest.mock import MagicMock
 import pytest
-from ..main import app
-from ..dependencies import get_db
+from main import app
+from dependencies import get_db
 
 mock_session = MagicMock()
 

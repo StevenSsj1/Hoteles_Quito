@@ -2,9 +2,9 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
 from sqlalchemy.orm import Session
 from datetime import timedelta
-from ..schemas.user_schema import User, UserCreate, Token
-from ..servicies.user_service import UserService
-from ..dependencies import get_db
+from schemas.user_schema import User, UserCreate, Token
+from servicies.user_service import UserService
+from dependencies import get_db
 from typing import List
 
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
