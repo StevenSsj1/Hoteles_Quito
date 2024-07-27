@@ -22,6 +22,11 @@ services:
       DATABASE_URL: "postgresql://user:password@db/dbname"
     ports:
       - "8000:8000"
+  app:
+    build: ./frontend
+    ports:
+      - "1234:80"
+    restart: always
 
 volumes:
   postgres_data:
