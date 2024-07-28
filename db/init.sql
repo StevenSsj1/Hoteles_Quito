@@ -33,3 +33,13 @@ VALUES ('Juan', 'Perez', 'juan@example.com', '123456789', 'password', 1);
 
 INSERT INTO usuarios (nombre, apellido, correo, telefono, contrasena, rol_id)
 VALUES ('Maria', 'Gonzalez', 'maria@example.com', '987654321', 'securepassword', 2);
+
+
+-- Crear la tabla hoteles
+CREATE TABLE IF NOT EXISTS hotels (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50) UNIQUE NOT NULL,
+    address VARCHAR(50) UNIQUE NOT NULL,
+    city VARCHAR(50) UNIQUE NOT NULL
+);
+

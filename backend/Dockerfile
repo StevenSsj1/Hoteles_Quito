@@ -6,6 +6,8 @@ WORKDIR /app
 COPY requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
+#RUN mkdir /mi-app/imagenes-hotel 
+
 COPY . .
 
 ENV PYTHONPATH=/app

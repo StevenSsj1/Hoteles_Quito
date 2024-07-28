@@ -16,3 +16,4 @@ def read_hotel(hotel_id: int, db: Session = Depends(get_db)):
     if db_hotel is None:
         raise HTTPException(status_code=404, detail="Hotel not found")
     return db_hotel
+

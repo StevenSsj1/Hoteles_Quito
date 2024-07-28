@@ -41,3 +41,13 @@ def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(), db:
 @router.get("/users/me", response_model=User)
 def read_users_me(db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
     return UserService.get_current_user(db, token)
+
+@router.delete("/users/{user_id}", response_model=User)
+def delete_user(user_id: int, db: Session = Depends(get_db)):
+    try:
+        user = UserService.delete_user(db=db, user_id=user_id)
+        if not user:
+            raise HTTPException(status_code=404, detail="User not found")
+        return user
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))

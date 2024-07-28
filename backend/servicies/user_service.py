@@ -86,3 +86,10 @@ class UserService:
         if user is None:
             raise credentials_exception
         return user
+    
+    def delete_user(self,db: Session, user_id: int):
+        user = UserRepository.get_user(db, user_id)
+        if user is None:
+            raise ValueError("User not found")
+        UserRepository.delete_user(db, user_id)
+        return user
