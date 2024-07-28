@@ -29,17 +29,40 @@ CREATE TABLE IF NOT EXISTS usuarios (
 
 -- Insertar algunos usuarios de ejemplo
 INSERT INTO usuarios (nombre, apellido, correo, telefono, contrasena, rol_id)
-VALUES ('Juan', 'Perez', 'juan@example.com', '123456789', 'password', 1);
+VALUES ('Alexis', 'Sánchez', 'asanchez@gmail.com', '123456789', '123', 1);
 
 INSERT INTO usuarios (nombre, apellido, correo, telefono, contrasena, rol_id)
-VALUES ('Maria', 'Gonzalez', 'maria@example.com', '987654321', 'securepassword', 2);
+VALUES ('Lenin', 'Llano', 'lllano@gmail.com', '987654321', '456', 2);
 
 
 -- Crear la tabla hoteles
 CREATE TABLE IF NOT EXISTS hotels (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(50) UNIQUE NOT NULL,
-    address VARCHAR(50) UNIQUE NOT NULL,
-    city VARCHAR(50) UNIQUE NOT NULL
+    name VARCHAR(100) UNIQUE NOT NULL,
+    address VARCHAR(300)  NOT NULL,
+    city VARCHAR(500)  NOT NULL
 );
 
+INSERT INTO hotels(
+	 name, address, city)
+VALUES ( 'Hotel Finlandia', 'Hotel en La Carolina, Quito', 'El Hotel Finlandia se encuentra en el distrito financiero, presenta unas instalaciones modernas y una decoración cálida y ofrece habitaciones con conexión Wi-Fi gratuita y TV de plasma.');
+
+INSERT INTO hotels(
+	 name, address, city)
+VALUES ( 'Hotel Stubel Suites & Cafe', 'Hotel en La Floresta, Quito', 'El Hotel Stubel Suites es un alojamiento moderno situado en Quito que ofrece vistas impresionantes al valle del Guápulo.');
+
+INSERT INTO hotels(
+	 name, address, city)
+VALUES ( 'Hotel Bellavista Quito', 'Hotel en Bellavista, Quito', 'El Hotel Bellavista Quito ofrece alojamiento con WiFi gratuita en Quito, en una zona comercial, a 5 minutos del parque La Carolina. Alberga un restaurante y un jardín.');
+
+INSERT INTO hotels(
+	 name, address, city)
+VALUES ( 'NH Collection Quito Royal', 'Hotel en La Floresta, Quito', 'Este hotel se encuentra a 3 km del centro histórico de Quito, junto al World Trade Center, y ofrece alojamientos lujosos, centro de bienestar, WiFi gratuita y desayuno gratuito a partir de las 02:30...');
+
+INSERT INTO hotels(
+	 name, address, city)
+VALUES ('Swissotel Quito', 'Hotel en La Floresta, Quito', 'El Swissôtel ofrece un alojamiento elegante en el sofisticado distrito comercial y residencial de Quito.');
+
+INSERT INTO hotels(
+	 name, address, city)
+VALUES ( 'Hotel Savoy Inn', 'Hotel en Quito', 'El Hotel Savoy Inn, situado en los Andes, a solo unos minutos del famoso TelefériQo y del aeropuerto, ofrece habitaciones confortables con baño privado y magníficas vistas a la ciudad y a las montañas...');

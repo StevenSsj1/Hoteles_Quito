@@ -5,13 +5,10 @@ import { FormControl, Validators, FormsModule, ReactiveFormsModule, FormGroup, F
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatDividerModule} from '@angular/material/divider';
-import { HttpHeaders, HttpParams,HttpClient , HttpClientModule } from '@angular/common/http';
+import { HttpHeaders, HttpParams,HttpClient  } from '@angular/common/http';
 import {MatButtonModule} from '@angular/material/button';
 import { merge } from 'rxjs';
 
-export interface Auth {
-  access_token: string;
-}
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -25,11 +22,11 @@ export class LoginComponent {
   email = new FormControl('', [Validators.required, Validators.email]);
   hide = true;
   errorMessage = '';
-  correo: string = '';
+  mail: string = '';
   psw: string = '';
   form: FormGroup;
   token: string | null=null;
-  dataAuth: Auth | null=null;
+  
   
 
   constructor(private fb: FormBuilder,readonly http: HttpClient) {
@@ -37,7 +34,7 @@ export class LoginComponent {
       .pipe(takeUntilDestroyed())
       .subscribe(() => this.updateErrorMessage());
     this.form = this.fb.group({
-      correo: ['', Validators.required],
+      mail: ['', Validators.required],
       psw: ['', Validators.required]
     })
   }
@@ -52,10 +49,12 @@ export class LoginComponent {
     }
   }
   
-  login(username: 'prueba@gmail.com', password: '123') {
+  login() {
+    this.mail=this.form.get('mail')?.value
+    this.psw=this.form.get('psw')?.value
     const body = new HttpParams()
-      .set('username', username)
-      .set('password', password);
+      .set('username', this.mail)
+      .set('password', this.psw);
   
     this.http.post('http://localhost:8000/api/token',
       body.toString(),

@@ -1,6 +1,5 @@
 from sqlalchemy.orm import Session
 from models.models_hoteles import Hotel
-#from schemas.hotel_schema import HotelCreate
 import schemas.hotel_schema as schemas
 
 class HotelRepository:
