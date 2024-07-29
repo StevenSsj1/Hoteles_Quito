@@ -3,6 +3,7 @@ from sqlalchemy.orm import Session
 from dependencies import get_db
 from schemas.hotel_schema import Hotel, HotelCreate
 from servicies.hotel_service import HotelService
+from typing import List
 
 router = APIRouter()
 
@@ -17,3 +18,7 @@ def read_hotel(hotel_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Hotel not found")
     return db_hotel
 
+
+@router.get("/hotels/", response_model=List[Hotel])
+def read_users(db: Session = Depends(get_db)):
+    return HotelService.get_all_hotels(db)

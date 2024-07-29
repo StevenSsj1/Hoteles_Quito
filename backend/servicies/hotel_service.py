@@ -11,3 +11,7 @@ class HotelService:
     @staticmethod
     def create_hotel(db: Session, hotel: HotelCreate):
         return HotelRepository.create_hotel(db, hotel)
+    
+    @staticmethod
+    def get_all_hotels(db: Session):
+        return HotelRepository.get_all_hotels(db)

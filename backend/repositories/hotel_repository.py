@@ -1,3 +1,4 @@
+from sqlalchemy.future import select
 from sqlalchemy.orm import Session
 from models.models_hoteles import Hotel
 import schemas.hotel_schema as schemas
@@ -16,5 +17,10 @@ class HotelRepository:
         db.commit()
         db.refresh(db_hotel)
         return db_hotel
+    
+    @staticmethod
+    def get_all_hotels(db: Session):
+        all_hotels = db.execute(select(Hotel))
+        return all_hotels.scalars().all()
     
  
