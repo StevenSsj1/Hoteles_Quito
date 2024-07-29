@@ -20,5 +20,5 @@ def read_hotel(hotel_id: int, db: Session = Depends(get_db)):
 
 
 @router.get("/hotels/", response_model=List[Hotel])
-def read_users(db: Session = Depends(get_db)):
+def get_all_hotels(db: Session = Depends(get_db)):
     return HotelService.get_all_hotels(db)
