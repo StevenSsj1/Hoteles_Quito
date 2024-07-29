@@ -1,0 +1,28 @@
+<form [formGroup]="form">
+    <div>
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" formControlName="nombre">
+    </div>
+    <div>
+      <label for="apellido">Apellido</label>
+      <input type="text" id="apellido" formControlName="apellido">
+    </div>
+    <div>
+      <label for="correo">Correo</label>
+      <input type="email" id="correo" formControlName="correo">
+    </div>
+    <div>
+      <label for="telefono">Teléfono</label>
+      <input type="text" id="telefono" formControlName="telefono">
+    </div>
+    <div>
+        <label for="contrasena">Contraseña</label>
+        <input type="password" id="contrasena" formControlName="contrasena">
+      </div>
+    <select id="opciones" name="opciones" formControlName="opciones">
+        <option value="1">Administrador</option>
+        <option value="2">Usuarios</option>
+    </select>
+    <button type="submit" (click)="crear_usuario()">Registrar</button>
+  </form>
+  
