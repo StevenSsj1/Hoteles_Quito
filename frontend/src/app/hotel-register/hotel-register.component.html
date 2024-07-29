@@ -1,0 +1,16 @@
+<form [formGroup]="form">
+    <div>
+      <label for="name">Nombre</label>
+      <input type="text" id="name" formControlName="name">
+    </div>
+    <div>
+      <label for="address">Dirección</label>
+      <input type="text" id="address" formControlName="address">
+    </div>
+    <div>
+      <label for="city">Descripción</label>
+      <textarea id="city" formControlName="city"></textarea>
+    </div>
+    <button type="submit" (click)="crear_hotel()">Registrar Hotel</button>
+  </form>
+  
