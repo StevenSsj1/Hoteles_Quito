@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-register',
@@ -27,7 +28,7 @@ export class UserRegisterComponent {
     this.rol=this.form.get('opciones')?.value
   }
 
-  constructor(private fb:FormBuilder){
+  constructor(private fb:FormBuilder,private router: Router){
     this.form=this.fb.group({
         nombre:['',Validators.required],
         apellido:['',Validators.required],
@@ -59,6 +60,8 @@ export class UserRegisterComponent {
     .then(response => response.json())
     .then(data => console.log(data))
     .catch(error => console.error('Error:', error))
+    alert('Usuario registrado');
+    this.router.navigate(['/home']);
   }
 }
 

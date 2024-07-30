@@ -4,19 +4,18 @@ import { MatIconModule } from '@angular/material/icon';
 import { FormControl, Validators, FormsModule, ReactiveFormsModule, FormGroup, FormBuilder } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatDividerModule} from '@angular/material/divider';
-import { HttpHeaders, HttpParams,HttpClient  } from '@angular/common/http';
-import {MatButtonModule} from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { HttpHeaders, HttpParams, HttpClient } from '@angular/common/http';
+import { MatButtonModule } from '@angular/material/button';
 import { merge } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule
-    ,MatButtonModule, MatDividerModule, MatIconModule
-  ],
+  imports: [MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule, MatButtonModule, MatDividerModule, MatIconModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
   email = new FormControl('', [Validators.required, Validators.email]);
@@ -25,18 +24,34 @@ export class LoginComponent {
   mail: string = '';
   psw: string = '';
   form: FormGroup;
-  token: string | null=null;
-  
-  
+  token: string | null = null;
 
-  constructor(private fb: FormBuilder,readonly http: HttpClient) {
+  showLoginButton: boolean = true;
+  showRegisterButton: boolean = true;
+  routes: any;
+
+  ngOnInit() {
+    const rolId = localStorage.getItem('rol_id');
+    const correo = localStorage.getItem('correo');
+
+    if (rolId && correo) {
+      this.showLoginButton = false;
+      this.showRegisterButton = false;
+    }
+  }
+
+  constructor(
+    private fb: FormBuilder,
+    readonly http: HttpClient,
+    private router: Router // Inyectar Router
+  ) {
     merge(this.email.statusChanges, this.email.valueChanges)
       .pipe(takeUntilDestroyed())
       .subscribe(() => this.updateErrorMessage());
     this.form = this.fb.group({
       mail: ['', Validators.required],
       psw: ['', Validators.required]
-    })
+    });
   }
 
   updateErrorMessage() {
@@ -48,63 +63,62 @@ export class LoginComponent {
       this.errorMessage = '';
     }
   }
-  
+
+  updateButtonVisibility() {
+    const rolId = localStorage.getItem('rol_id');
+    const correo = localStorage.getItem('correo');
+
+    // Si rolId y correo están presentes, no mostrar los botones de inicio de sesión y registro
+    if (rolId && correo) {
+      this.showLoginButton = false;
+      this.showRegisterButton = false;
+    } else {
+      this.showLoginButton = true;
+      this.showRegisterButton = true;
+    }
+  }
+
   login() {
-    this.mail=this.form.get('mail')?.value
-    this.psw=this.form.get('psw')?.value
+    this.mail = this.form.get('mail')?.value;
+    this.psw = this.form.get('psw')?.value;
     const body = new HttpParams()
       .set('username', this.mail)
       .set('password', this.psw);
-  
-    this.http.post('http://localhost:8000/api/token',
-      body.toString(),
-      {
-        headers: new HttpHeaders()
-          .set('Content-Type', 'application/x-www-form-urlencoded')
-      }
-    ).subscribe(responseData => {
-      console.log(responseData);
+
+    this.http.post('http://localhost:8000/api/token', body.toString(), {
+      headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+    }).subscribe(responseData => {
       if (typeof responseData === 'object' && 'access_token' in responseData) {
         this.token = (responseData as { access_token: string }).access_token;
-        console.log('Token de acceso:', this.token);
+        this.datos();
       } else {
         console.error('No se encontró el token de acceso en la respuesta');
       }
-      this.datos();
     });
-    
+
+    this.router.navigate(['/home']).then(() => {
+      this.updateButtonVisibility();
+    });
   }
 
   datos() {
-    // Supongamos que ya tienes el Bearer Token
     const token = this.token;
-
-    // La URL a la que deseas hacer la petición
     const url = 'http://localhost:8000/api/users/me';
 
-    // Realizar la petición fetch con el Bearer Token
     fetch(url, {
-      method: 'GET', // O 'POST', 'PUT', 'DELETE', según sea necesario
+      method: 'GET',
       headers: {
-        'Authorization': `Bearer ${token}`, // Incluir el Bearer Token en el encabezado
-        'Content-Type': 'application/json' // Tipo de contenido, si es necesario
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
       }
     })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json(); // O response.text(), response.blob(), etc., según sea necesario
-      })
-      .then(data => {
-        console.log('Datos recibidos:', data);
-      })
-      .catch(error => {
-        console.error('Hubo un problema con la solicitud fetch:', error);
-      });
-
+    .then(response => response.json())
+    .then(data => {
+      localStorage.setItem('rol_id', data.rol_id.toString());
+      localStorage.setItem('correo', data.correo);
+      // Redirigir a la ruta home después de guardar los datos
+      this.router.navigate(['/home']);
+    })
+    .catch(error => console.error('Hubo un problema con la solicitud fetch:', error));
   }
 }
-
-
-

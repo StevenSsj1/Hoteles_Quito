@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-hotel-register',
@@ -15,7 +16,7 @@ export class HotelRegisterComponent {
   city: string = '';
   description: string = '';
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,private router: Router ) {
     this.form = this.fb.group({
       name: ['', Validators.required],
       address: ['', Validators.required],
@@ -48,5 +49,9 @@ export class HotelRegisterComponent {
     .then(response => response.json())
     .then(data => console.log(data))
     .catch(error => console.error('Error:', error));
+    alert('Hotel registrado');
+    this.router.navigate(['/home']);
   }
+
+  
 }
