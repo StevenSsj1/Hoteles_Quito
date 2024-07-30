@@ -70,6 +70,7 @@ margin-bottom: 20px;
 width: 50%;
 height: 50%;
 border-radius: 10%;
+min-width: 600px;
 }
 
 .img-l{

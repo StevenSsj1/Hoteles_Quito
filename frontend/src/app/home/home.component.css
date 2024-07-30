@@ -10,10 +10,12 @@
     margin: 10px 50px;
     color: black;
     font:bold 20px verdana;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
  }
  
  .img-prin{
     width:500px;
     height:400px;
     padding:10px;
+    float: none;
  }

@@ -5,7 +5,6 @@
     filter:alpha(opacity=20);
     -moz-opacity:0.3;
     opacity: 0.9;
-    font-family: "Times New Roman", Times, serif;
     color: black;
     font-size: 40px;
   }
@@ -18,4 +17,3 @@
     display: flex;
     align-items: center;
   }
-  
