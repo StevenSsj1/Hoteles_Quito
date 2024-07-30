@@ -1,0 +1,35 @@
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Nombre Column -->
+    <ng-container matColumnDef="nombre">
+      <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.nombre}} </mat-cell>
+    </ng-container>
+  
+    <!-- Apellido Column -->
+    <ng-container matColumnDef="apellido">
+      <mat-header-cell *matHeaderCellDef> Apellido </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.apellido}} </mat-cell>
+    </ng-container>
+  
+    <!-- Correo Column -->
+    <ng-container matColumnDef="correo">
+      <mat-header-cell *matHeaderCellDef> Correo </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.correo}} </mat-cell>
+    </ng-container>
+  
+    <!-- Teléfono Column -->
+    <ng-container matColumnDef="telefono">
+      <mat-header-cell *matHeaderCellDef> Teléfono </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.telefono}} </mat-cell>
+    </ng-container>
+  
+    <!-- Rol Column -->
+    <ng-container matColumnDef="rol">
+      <mat-header-cell *matHeaderCellDef> Rol </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.rol}} </mat-cell>
+    </ng-container>
+  
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  

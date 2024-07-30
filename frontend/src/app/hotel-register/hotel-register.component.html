@@ -1,16 +1,19 @@
-<form [formGroup]="form">
+<h1>REGISTRO DE HOTEL</h1>
+<div class="text-hr">
+  <form [formGroup]="form">
     <div>
-      <label for="name">Nombre</label>
-      <input type="text" id="name" formControlName="name">
+      <label for="name">Nombre: </label>
+      <input class="ipt" type="text" id="name" formControlName="name">
     </div>
-    <div>
-      <label for="address">Dirección</label>
-      <input type="text" id="address" formControlName="address">
+    <div><br>
+      <label for="address">Dirección: </label>
+      <input class="ipt" type="text" id="address" formControlName="address">
     </div>
-    <div>
-      <label for="city">Descripción</label>
-      <textarea id="city" formControlName="city"></textarea>
-    </div>
-    <button type="submit" (click)="crear_hotel()">Registrar Hotel</button>
+    <div><br>
+      <label for="city">Descripción: </label>
+      <textarea class="ipt-area" id="city" formControlName="city"></textarea>
+    </div><br>
+    <button class="btn-hr" type="submit" (click)="crear_hotel()">Registrar Hotel</button>
   </form>
+</div>
   

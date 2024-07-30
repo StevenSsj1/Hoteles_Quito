@@ -1,0 +1,74 @@
+ /*HOTEL-REGISTER*/
+
+ .ipt{
+    width: 180px;
+    height: 25px;
+    margin-left: 50px;
+    float: right;
+ }
+
+ .ipt-area{
+    width: 180px;
+    height: 25px;
+    max-width: 180px;
+    min-width: 180px;
+    max-height: 100px;
+    min-height: 25px;
+    float: right;
+ }
+
+ .text-hr{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FAEE76;
+    filter:alpha(opacity=20);
+    -moz-opacity:0.3;
+    opacity: 0.9;
+    padding:20px;
+    color: black;
+    font:bold 20px verdana;
+    margin: 0 auto; 
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 25%;
+    height: 35%;
+    border-radius: 10%;
+ }
+ 
+ .img-hr{
+    width:500px;
+    height:400px;
+    padding:10px;
+ }
+ 
+ .btn-hr{
+
+    color: black;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    font:bold 20px verdana;
+ }
+
+ /*BASICS*/
+ h1{
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #faaf76;
+    filter:alpha(opacity=20);
+    -moz-opacity:0.3;
+    opacity: 0.9;
+    padding: 40px 20px;
+    color: black;
+    font-size: 40px;
+    margin: 0 auto; 
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 35%;
+    height: 2%;
+    border-radius: 10%;
+ }

@@ -1,3 +1,21 @@
-<app-user-register/>
-<app-login/>
-<app-hotel-register/>
+
+<main>
+    <header class="centro">
+      <img src="https://cdn-icons-png.flaticon.com/128/826/826070.png" width="75px" height="75px"><br>
+      <img src="../assets/logo.png" width="500px" height="75px">
+    </header>
+    <nav>
+        <a style="margin-left: 10px;" routerLinkActive="active" ariaCurrentWhenActive="page" routerLink="/home">Home</a>
+        <a style="margin-left: 10px;" routerLinkActive="active" ariaCurrentWhenActive="page" routerLink="/hotel-list">Listar Hoteles</a>
+        <a style="margin-left: 1050px;" routerLinkActive="active" ariaCurrentWhenActive="page" routerLink="/login">Iniciar Sesión</a>
+        <a style="margin-left: 5px;" routerLinkActive="active" ariaCurrentWhenActive="page" routerLink="/user-register">Registrarse</a>
+    </nav>
+    <router-outlet></router-outlet>
+    <footer >          
+      <a href="https://web.whatsapp.com/">
+        ¿Necesitas ayuda? &nbsp;&nbsp;&nbsp;       
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" width="75px" height="75px">
+      </a>
+      <p style="color: white;font-size: 25px;">Todos los derechos reservado ©</p>
+    </footer>
+</main>

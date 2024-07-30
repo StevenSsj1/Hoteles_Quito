@@ -1,28 +1,32 @@
-<form [formGroup]="form">
+<h1>REGISTRAR USUARIO</h1>
+<form [formGroup]="form" class="text-ur">
     <div>
-      <label for="nombre">Nombre</label>
-      <input type="text" id="nombre" formControlName="nombre">
+      <label for="nombre">Nombre: </label>
+      <input class="ipt" type="text" id="nombre" formControlName="nombre">
     </div>
-    <div>
-      <label for="apellido">Apellido</label>
-      <input type="text" id="apellido" formControlName="apellido">
+    <div><br>
+      <label for="apellido">Apellido: </label>
+      <input class="ipt" type="text" id="apellido" formControlName="apellido">
     </div>
-    <div>
-      <label for="correo">Correo</label>
-      <input type="email" id="correo" formControlName="correo">
+    <div><br>
+      <label for="correo">Correo: </label>
+      <input class="ipt" type="email" id="correo" formControlName="correo">
     </div>
-    <div>
-      <label for="telefono">Teléfono</label>
-      <input type="text" id="telefono" formControlName="telefono">
+    <div><br>
+      <label for="telefono">Teléfono: </label>
+      <input class="ipt" type="text" id="telefono" formControlName="telefono">
     </div>
-    <div>
-        <label for="contrasena">Contraseña</label>
-        <input type="password" id="contrasena" formControlName="contrasena">
+    <div><br>
+        <label for="contrasena">Contraseña: </label>
+        <input class="ipt" type="password" id="contrasena" formControlName="contrasena">
       </div>
-    <select id="opciones" name="opciones" formControlName="opciones">
-        <option value="1">Administrador</option>
-        <option value="2">Usuarios</option>
-    </select>
-    <button type="submit" (click)="crear_usuario()">Registrar</button>
+      <div><br>
+        <label for="tipo">Tipo: </label>
+        <select class="ipt" id="opciones" name="opciones" formControlName="opciones">
+          <option value="1">Administrador</option>
+          <option value="2">Usuarios</option>
+        </select>
+      </div><br>
+    <button class="btn-ur" type="submit" (click)="crear_usuario()">Registrar</button>
   </form>
   

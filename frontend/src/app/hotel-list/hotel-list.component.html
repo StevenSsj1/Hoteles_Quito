@@ -1,0 +1,23 @@
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Nombre Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> <b>Nombre</b>  </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+  
+    <!-- Dirección Column -->
+    <ng-container matColumnDef="address">
+      <mat-header-cell *matHeaderCellDef> <b>Dirección</b> </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.address}} </mat-cell>
+    </ng-container>
+  
+    <!-- Ciudad Column -->
+    <ng-container matColumnDef="city">
+      <mat-header-cell *matHeaderCellDef> <b>Descripción</b> </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.city}} </mat-cell>
+    </ng-container>
+  
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  

@@ -27,14 +27,6 @@ CREATE TABLE IF NOT EXISTS usuarios (
     rol_id INTEGER REFERENCES roles(id)
 );
 
--- Insertar algunos usuarios de ejemplo
-INSERT INTO usuarios (nombre, apellido, correo, telefono, contrasena, rol_id)
-VALUES ('Alexis', 'Sánchez', 'asanchez@gmail.com', '123456789', '123', 1);
-
-INSERT INTO usuarios (nombre, apellido, correo, telefono, contrasena, rol_id)
-VALUES ('Lenin', 'Llano', 'lllano@gmail.com', '987654321', '456', 2);
-
-
 -- Crear la tabla hoteles
 CREATE TABLE IF NOT EXISTS hotels (
     id SERIAL PRIMARY KEY,

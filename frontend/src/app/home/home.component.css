@@ -1,0 +1,19 @@
+ /*INDEX*/
+ 
+ .text-prin{
+    float: right;
+    background-color: #FAEE76;
+    filter:alpha(opacity=20);
+    -moz-opacity:0.3;
+    opacity: 0.9;
+    padding: 40px 20px;
+    margin: 10px 50px;
+    color: black;
+    font:bold 20px verdana;
+ }
+ 
+ .img-prin{
+    width:500px;
+    height:400px;
+    padding:10px;
+ }

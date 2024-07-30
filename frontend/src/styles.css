@@ -1,4 +1,101 @@
-/* You can add global styles to this file, and also import other style files */
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+ /*BASICS*/
+ body{
+    background-image: url("https://cdn.supadupa.me/shop/14281/images/2387736/world_map_1839_p1_massive.jpg?1470428448");
+ }
+  
+ header{
+     background: rgb(9,0,96);
+     background: linear-gradient(180deg, rgba(9,0,96,1) 0%, rgba(1,60,140,1) 35%, rgba(56,184,183,1) 100%);
+     padding: 20px 10px;
+ }
+  
+ nav{
+  
+     overflow: hidden;
+     background: rgb(68,45,0);
+     background: linear-gradient(180deg, rgba(68,45,0,1) 0%, rgba(93,68,0,1) 35%, rgba(194,147,51,1) 100%);
+     padding: 10px 5px;
+     font:bold 14px verdana;
+ }  
+  
+ nav a {
+     float: left; 
+     color: black;
+     text-align: center;
+     padding: 12px;
+     text-decoration: underline;
+     font-size: 18px; 
+     line-height: 25px;
+     border-radius: 4px;
+ }
+  
+ nav a.active {
+     background: rgb(140,120,0);
+     background: linear-gradient(180deg, rgba(140,120,0,1) 0%, rgba(162,157,0,1) 35%, rgba(229,242,13,1) 100%);
+     border:1px solid #92860B;
+     color: black;
+     cursor: pointer;
+     pointer-events: auto;
+ }
+  
+ footer {
+     overflow: hidden;
+     background: rgb(68,45,0);
+     background: linear-gradient(180deg, rgba(68,45,0,1) 0%, rgba(93,68,0,1) 35%, rgba(194,147,51,1) 100%);
+     padding: 20px 10px;
+     text-align: center;
+     clear:both;
+ }
+  
+ footer li{
+     list-style: none;
+     font:bold 14px verdana;
+     padding: 10px;
+     display: inline-block;
+ }
+  
+ footer a.active {
+     background: rgb(140,120,0);
+     background: linear-gradient(180deg, rgba(140,120,0,1) 0%, rgba(162,157,0,1) 35%, rgba(229,242,13,1) 100%);
+     border:1px solid #92860B;
+     color: white;
+ }
+  
+ footer a {
+     color: white;
+     text-align: center;
+     padding: 12px;
+     text-decoration: underline;
+     font-size: 18px; 
+     line-height: 25px;
+     border-radius: 4px;
+     margin-left: 1000px;
+     font-size: 25px;
+ }
+ 
+                /*CLASES DEFINIDAS*/
+ 
+ /*GENERAL*/
+ .centro{
+    text-align: center;
+  }
+  
+  .sec-derecha{
+      float:right;
+     margin: 10px 50px;
+  }
+ 
+ .sec-izquierda{
+      float:left;
+        margin: 10px 50px;
+  }
+ 
+  .derecha{
+    text-align: right;
+  }
+ 
+  .izquierda{
+    text-align: left;
+    float:left;
+    margin: 10px 50px;
+  }
