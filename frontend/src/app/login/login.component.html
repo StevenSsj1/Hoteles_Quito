@@ -1,0 +1,24 @@
+<div [formGroup]="form">
+  <div class="example-container">
+    <mat-form-field>
+      <mat-label>Ingresa tu Correo</mat-label>
+      <input formControlName="mail"
+             matInput
+             placeholder="pat@ejemplo.com"
+             (blur)="updateErrorMessage()"
+             required>
+    </mat-form-field>
+  </div>
+  <div class="example-container">
+    <mat-form-field>
+      <mat-label>Ingresa tu contraseña</mat-label>
+      <input formControlName="psw" matInput [type]="hide ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  <div class="example-button-row">
+    <button (click)="login()" mat-flat-button color="primary">Primary</button>
+  </div>
+</div>
